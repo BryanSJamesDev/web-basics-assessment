@@ -45,7 +45,7 @@
 
   /* ---------- Navbar ---------- */
   nav.navbar{
-    position: sticky; /* positioning option #1: sticky */
+    position: sticky; /* sticks once it hits the top */
     top:0;
     z-index:50;
     display:flex;
@@ -115,7 +115,7 @@
     margin-top:1rem;
   }
   .pos-static{
-    position:static; /* positioning option #2: static (the default) */
+    position:static; /* default flow, just here for comparison */
     display:inline-block;
     margin:12px;
     padding:10px 14px;
@@ -123,7 +123,7 @@
     border-radius:6px;
   }
   .pos-relative{
-    position:relative; /* positioning option #3: relative */
+    position:relative; /* nudged from where it would normally sit */
     top:14px; left:30px;
     display:inline-block;
     padding:10px 14px;
@@ -131,7 +131,7 @@
     border-radius:6px;
   }
   .pos-absolute{
-    position:absolute; /* positioning option #4: absolute */
+    position:absolute; /* pinned to the corner of .pos-stage */
     bottom:14px;
     right:14px;
     padding:10px 14px;
@@ -140,7 +140,7 @@
     border-radius:6px;
   }
   .pos-fixed-demo{
-    position:fixed; /* positioning option #5 (bonus 4th non-default): fixed */
+    position:fixed; /* pinned to the browser window, not the page */
     bottom:14px;
     left:14px;
     padding:8px 12px;
@@ -190,26 +190,25 @@
   <!-- ================= MAIN HEADER ================= -->
   <section style="text-align:center;">
     <h1 id="html-structure">HTML + CSS + JS Self Assessment</h1>
-    <p style="color:var(--muted);">One page, six tasks: structure, SEO, a CSS-free grid, the box model, font units, and positioning.</p>
+    <p style="color:var(--muted);">My HTML + CSS + JS self assessment, all in one page.</p>
   </section>
 
   <!-- ================= SUBHEADER 1: 10 useful tags ================= -->
   <section id="tags">
     <h2>1. Ten HTML tags I reach for most</h2>
     <div class="panel">
-      <table class="tagtable">
-        <tr><th>Tag</th><th>Why it's useful</th></tr>
-        <tr><td><code>&lt;div&gt;</code></td><td>Generic block container for grouping and layout.</td></tr>
-        <tr><td><code>&lt;span&gt;</code></td><td>Generic inline container for styling a chunk of text.</td></tr>
-        <tr><td><code>&lt;section&gt;</code></td><td>Groups a thematic chunk of a page (better than a bare div semantically).</td></tr>
-        <tr><td><code>&lt;nav&gt;</code></td><td>Marks navigation links so assistive tech and search engines recognize the menu.</td></tr>
-        <tr><td><code>&lt;header&gt; / &lt;footer&gt;</code></td><td>Introduces/closes a page or section with semantic meaning.</td></tr>
-        <tr><td><code>&lt;ul&gt;/&lt;ol&gt;/&lt;li&gt;</code></td><td>Lists — the backbone of nav menus, cards, and any repeated items.</td></tr>
-        <tr><td><code>&lt;img&gt;</code></td><td>Embeds images; the <code>alt</code> attribute matters for accessibility and SEO.</td></tr>
-        <tr><td><code>&lt;a&gt;</code></td><td>Links — the entire point of the web.</td></tr>
-        <tr><td><code>&lt;button&gt;</code></td><td>Native, accessible, keyboard-friendly interactive control (better than a styled div).</td></tr>
-        <tr><td><code>&lt;form&gt; / &lt;input&gt;</code></td><td>Collects user input with built-in validation and semantics.</td></tr>
-      </table>
+      <ol>
+        <li><code>&lt;div&gt;</code></li>
+        <li><code>&lt;span&gt;</code></li>
+        <li><code>&lt;section&gt;</code></li>
+        <li><code>&lt;nav&gt;</code></li>
+        <li><code>&lt;header&gt;</code> / <code>&lt;footer&gt;</code></li>
+        <li><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> / <code>&lt;li&gt;</code></li>
+        <li><code>&lt;img&gt;</code></li>
+        <li><code>&lt;a&gt;</code></li>
+        <li><code>&lt;button&gt;</code></li>
+        <li><code>&lt;form&gt;</code> / <code>&lt;input&gt;</code></li>
+      </ol>
     </div>
   </section>
 
@@ -217,25 +216,24 @@
   <section id="seo">
     <h2>2. Header tags that matter for SEO</h2>
     <div class="panel">
-      <p>Researching this, the tags search engines and crawlers care about most are:</p>
-      <table class="tagtable">
-        <tr><th>Tag</th><th>SEO role</th></tr>
-        <tr><td><code>&lt;title&gt;</code></td><td>Shows up as the clickable headline in search results — arguably the single most important SEO tag.</td></tr>
-        <tr><td><code>&lt;meta name="description"&gt;</code></td><td>Powers the snippet text under the title in search results.</td></tr>
-        <tr><td><code>&lt;h1&gt;</code></td><td>Should appear once per page and describe the page's main topic.</td></tr>
-        <tr><td><code>&lt;h2&gt;-&lt;h6&gt;</code></td><td>Build a logical outline so crawlers (and readers) understand hierarchy.</td></tr>
-        <tr><td><code>&lt;meta name="viewport"&gt;</code></td><td>Signals mobile-friendliness, a ranking factor.</td></tr>
-        <tr><td><code>&lt;link rel="canonical"&gt;</code></td><td>Tells search engines the "real" URL when content is duplicated across pages.</td></tr>
-        <tr><td>Open Graph <code>&lt;meta property="og:*"&gt;</code></td><td>Controls how the page previews when shared on social platforms.</td></tr>
-        <tr><td><code>&lt;img alt="..."&gt;</code></td><td>Not a header tag, but heavily weighted for image search and accessibility.</td></tr>
-      </table>
+      <p>Tags that matter most for SEO:</p>
+      <ul>
+        <li><code>&lt;title&gt;</code></li>
+        <li><code>&lt;meta name="description"&gt;</code></li>
+        <li><code>&lt;h1&gt;</code></li>
+        <li><code>&lt;h2&gt;</code> through <code>&lt;h6&gt;</code></li>
+        <li><code>&lt;meta name="viewport"&gt;</code></li>
+        <li><code>&lt;link rel="canonical"&gt;</code></li>
+        <li>Open Graph tags, <code>&lt;meta property="og:*"&gt;</code></li>
+        <li><code>&lt;img alt="..."&gt;</code></li>
+      </ul>
     </div>
   </section>
 
   <!-- ================= SUBHEADER 3: 3x3 grid, no CSS, no table ================= -->
   <section id="grid">
     <h2>3. A 3&times;3 "grid" using only divs and spans (zero CSS)</h2>
-    <p>No <code>&lt;table&gt;</code>, no stylesheet, no <code>style</code> attribute. Just the natural fact that a <code>&lt;div&gt;</code> is block-level (stacks into rows) and a <code>&lt;span&gt;</code> is inline (sits side by side). Box-drawing characters and non-breaking spaces do the rest:</p>
+    <p>No <code>&lt;table&gt;</code>, no stylesheet, no <code>style</code> attribute. A <code>&lt;div&gt;</code> is block-level so it just stacks into a new row on its own. A <code>&lt;span&gt;</code> is inline so it sits next to whatever's beside it. That's the whole trick. Box-drawing characters and non-breaking spaces do the rest:</p>
     <div class="panel">
 <div><span>&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;&nbsp;&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;&nbsp;&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;</span></div>
 <div><span>&#9474;&nbsp;&nbsp;R1C1&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R1C2&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R1C3&nbsp;&nbsp;&#9474;</span></div>
@@ -247,30 +245,30 @@
 <div><span>&#9474;&nbsp;&nbsp;R3C1&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R3C2&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R3C3&nbsp;&nbsp;&#9474;</span></div>
 <div><span>&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;&nbsp;&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;&nbsp;&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</span></div>
     </div>
-    <p style="font-size:0.85rem; color:var(--muted);">Each row is its own <code>&lt;div&gt;</code> (forces a new line); each cell is a <code>&lt;span&gt;</code> joined by <code>&amp;nbsp;</code> so they stay on one line. No layout CSS involved &mdash; this is pure default block/inline flow.</p>
+    <p style="font-size:0.85rem; color:var(--muted);">Each row is its own <code>&lt;div&gt;</code>, which forces a new line. Each cell is a <code>&lt;span&gt;</code>, joined to its neighbors with <code>&amp;nbsp;</code> so they don't wrap. No CSS layout anywhere on this one.</p>
   </section>
 
   <!-- ================= 4. Box model gallery ================= -->
   <section id="box-model">
     <h2>4. Box model gallery</h2>
-    <p>Three rows (border / margin / padding vary by row), three columns per row (three different value sizes: <code>0px</code>, <code>5px</code>, <code>10px</code>) applied to the light box, wrapping a fixed teal content box so the size difference is visible.</p>
+    <p>Each row changes one property: border in row 1, margin in row 2, padding in row 3. Each column tests a different value: 0px, 5px, and 10px. The teal box in the middle stays the same size the whole time, so any size change you see around it is just the property being tested.</p>
 
     <div class="panel">
-      <h3>Row 1 &mdash; varying <code>border-width</code> (0px / 5px / 10px), margin &amp; padding fixed at 8px</h3>
+      <h3>Row 1: varying <code>border-width</code> (0px / 5px / 10px), margin &amp; padding fixed at 8px</h3>
       <div class="bm-row">
         <div class="bm-cell-wrap"><div class="bm-cell" style="border:0px solid #b5651d; margin:8px; padding:8px;"><div class="bm-content">border: 0px</div></div>0px</div>
         <div class="bm-cell-wrap"><div class="bm-cell" style="border:5px solid #b5651d; margin:8px; padding:8px;"><div class="bm-content">border: 5px</div></div>5px</div>
         <div class="bm-cell-wrap"><div class="bm-cell" style="border:10px solid #b5651d; margin:8px; padding:8px;"><div class="bm-content">border: 10px</div></div>10px</div>
       </div>
 
-      <h3>Row 2 &mdash; varying <code>margin</code> (0px / 5px / 10px), border &amp; padding fixed</h3>
+      <h3>Row 2: varying <code>margin</code> (0px / 5px / 10px), border &amp; padding fixed</h3>
       <div class="bm-row" style="background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,0.04) 10px,rgba(0,0,0,0.04) 20px); padding:6px; border-radius:8px;">
         <div class="bm-cell-wrap"><div class="bm-cell" style="border:3px solid #b5651d; margin:0px; padding:8px;"><div class="bm-content">margin: 0px</div></div>0px</div>
         <div class="bm-cell-wrap"><div class="bm-cell" style="border:3px solid #b5651d; margin:5px; padding:8px;"><div class="bm-content">margin: 5px</div></div>5px</div>
         <div class="bm-cell-wrap"><div class="bm-cell" style="border:3px solid #b5651d; margin:10px; padding:8px;"><div class="bm-content">margin: 10px</div></div>10px</div>
       </div>
 
-      <h3>Row 3 &mdash; varying <code>padding</code> (0px / 5px / 10px), border &amp; margin fixed</h3>
+      <h3>Row 3: varying <code>padding</code> (0px / 5px / 10px), border &amp; margin fixed</h3>
       <div class="bm-row">
         <div class="bm-cell-wrap"><div class="bm-cell" style="border:3px solid #b5651d; margin:8px; padding:0px;"><div class="bm-content">padding: 0px</div></div>0px</div>
         <div class="bm-cell-wrap"><div class="bm-cell" style="border:3px solid #b5651d; margin:8px; padding:5px;"><div class="bm-content">padding: 5px</div></div>5px</div>
@@ -285,22 +283,22 @@
     <div class="panel">
       <ul class="fontsizes" style="list-style:square;">
         <li style="font-size:12px;">The quick brown fox jumps over the lazy dog.
-          <small>12px (absolute, pixels) &mdash; use for a fixed, pixel-precise caption or legal fine print that should never scale with the user's browser font setting.</small>
+          <small>12px, absolute. I'd use this for fine print, like a copyright line, where I actually want it to stay tiny no matter what the reader's browser settings are.</small>
         </li>
         <li style="font-size:18pt;">The quick brown fox jumps over the lazy dog.
-          <small>18pt (absolute, points) &mdash; borrowed from print design; useful when a layout is meant to be printed and needs to match a physical page size.</small>
+          <small>18pt, absolute. This is a print unit really, so I'd only pull it out if I were styling something meant to be printed, like a PDF invoice template.</small>
         </li>
         <li style="font-size:1.5em;">The quick brown fox jumps over the lazy dog.
-          <small>1.5em (relative to parent) &mdash; use inside a component (like a card or button) so the text scales with that component's own font-size wherever it's reused.</small>
+          <small>1.5em, relative to the parent. Good for something inside a reusable component, like a button, so it scales along with whatever font-size that component was given.</small>
         </li>
         <li style="font-size:1.75rem;">The quick brown fox jumps over the lazy dog.
-          <small>1.75rem (relative to the root <code>&lt;html&gt;</code>) &mdash; the go-to for headings site-wide, since it scales consistently with the user's base font size regardless of nesting.</small>
+          <small>1.75rem, relative to the root html element. This is my default for headings since it won't randomly change size just because it's nested three divs deep.</small>
         </li>
         <li style="font-size:120%;">The quick brown fox jumps over the lazy dog.
-          <small>120% (relative to parent) &mdash; handy for a "slightly bigger than surrounding text" tweak, e.g. bumping up a pull-quote inside an article.</small>
+          <small>120%, relative to the parent. I'd use this for something like a pull-quote that just needs to be a bit bigger than the paragraph around it, nothing dramatic.</small>
         </li>
         <li style="font-size:4vw;">The quick brown fox jumps over the lazy dog.
-          <small>4vw (relative to viewport width) &mdash; great for a hero banner headline that should visibly grow/shrink as the browser window is resized.</small>
+          <small>4vw, relative to the viewport width. This is fun for a big hero headline that you actually want to grow or shrink as you resize the browser window.</small>
         </li>
       </ul>
     </div>
@@ -309,7 +307,7 @@
   <!-- ================= 6. Positioning playground ================= -->
   <section id="positioning">
     <h2>6. Four positioning options, live</h2>
-    <p>The navbar at the top of this page is <code>position: sticky</code> &mdash; that's positioning option #1. Here are three more inside one stage (plus a bonus fixed pill in the corner of the screen):</p>
+    <p>The navbar up top is already <code>position: sticky</code>, so that's option #1 down. Here are three more in one little demo box, plus a bonus fixed pill hanging out in the corner of your actual browser window:</p>
     <div class="panel">
       <div class="pos-stage">
         <div class="pos-static">static box (default flow)</div>
@@ -317,12 +315,12 @@
         <div class="pos-absolute">absolute box (pinned to bottom-right of this stage)</div>
       </div>
       <table class="tagtable" style="margin-top:1rem;">
-        <tr><th>Position</th><th>When I'd reach for it</th></tr>
-        <tr><td><code>sticky</code></td><td>A navbar or table header that should scroll normally, then stick once it hits the top of the viewport.</td></tr>
-        <tr><td><code>static</code></td><td>The default &mdash; almost everything, until it specifically needs to move or overlap.</td></tr>
-        <tr><td><code>relative</code></td><td>Nudging an element slightly from its normal spot, or creating a positioning context (containing block) for an absolute child.</td></tr>
-        <tr><td><code>absolute</code></td><td>Pinning a badge, tooltip, or icon to a corner of a specific parent, e.g. a "sale" ribbon on a product card.</td></tr>
-        <tr><td><code>fixed</code></td><td>A floating chat button or cookie banner that stays in the same spot on screen no matter how far you scroll (see the teal pill, bottom-left of the browser window).</td></tr>
+        <tr><th>Position</th><th>When I'd actually use it</th></tr>
+        <tr><td><code>sticky</code></td><td>Navbars, mostly. Scrolls with the page like normal, then locks to the top once it hits the edge.</td></tr>
+        <tr><td><code>static</code></td><td>This is the default for everything. You only start caring about position once static stops being enough.</td></tr>
+        <tr><td><code>relative</code></td><td>Either a small nudge off its normal spot, or (more often, honestly) just to give an absolutely positioned child something to anchor to.</td></tr>
+        <tr><td><code>absolute</code></td><td>Pinning something to a corner of its container, like a little "sale" tag stuck on a product card.</td></tr>
+        <tr><td><code>fixed</code></td><td>Stuff that should never move no matter how far you scroll, like a chat bubble. That teal pill bottom-left is doing exactly this.</td></tr>
       </table>
     </div>
   </section>
@@ -333,9 +331,9 @@
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <p>Built for the HTML + CSS + JS self assessment &mdash; <span id="year"></span></p>
+  <p>Built for the HTML + CSS + JS self assessment, <span id="year"></span></p>
   <button id="theme-toggle" type="button">Toggle light / dark</button>
-  <p style="font-size:0.75rem; margin-top:0.6rem;">This footer sits at the bottom of the screen even on short pages because <code>body</code> is a flex column with <code>min-height:100vh</code> and <code>main{flex:1 0 auto}</code> &mdash; a flavor of positioning that doesn't need <code>position:absolute</code> at all.</p>
+  <p style="font-size:0.75rem; margin-top:0.6rem;">This footer sits at the bottom of the screen even on short pages because <code>body</code> is a flex column with <code>min-height:100vh</code> and <code>main{flex:1 0 auto}</code>, a flavor of positioning that doesn't need <code>position:absolute</code> at all.</p>
 </footer>
 
 <script>
