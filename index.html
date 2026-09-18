@@ -251,7 +251,7 @@
   <!-- ================= 4. Box model gallery ================= -->
   <section id="box-model">
     <h2>4. Box model gallery</h2>
-    <p>Each row changes one property: border in row 1, margin in row 2, padding in row 3. Each column tests a different value: 0px, 5px, and 10px. The teal box in the middle stays the same size the whole time, so any size change you see around it is just the property being tested.</p>
+    <p>Each row changes a different property (border, then margin, then padding), and each column bumps that value up: 0px, 5px, 10px. The teal box in the middle never changes size, so whatever's growing or shrinking around it is the property being tested.</p>
 
     <div class="panel">
       <h3>Row 1: varying <code>border-width</code> (0px / 5px / 10px), margin &amp; padding fixed at 8px</h3>
@@ -283,22 +283,22 @@
     <div class="panel">
       <ul class="fontsizes" style="list-style:square;">
         <li style="font-size:12px;">The quick brown fox jumps over the lazy dog.
-          <small>12px, absolute. I'd use this for fine print, like a copyright line, where I actually want it to stay tiny no matter what the reader's browser settings are.</small>
+          <small>12px, absolute. This is what fine print and copyright lines are made of, small on purpose and staying that way no matter what the reader's browser is set to.</small>
         </li>
         <li style="font-size:18pt;">The quick brown fox jumps over the lazy dog.
-          <small>18pt, absolute. This is a print unit really, so I'd only pull it out if I were styling something meant to be printed, like a PDF invoice template.</small>
+          <small>18pt, absolute. Points are a print unit, so this only really matters once the page is headed for paper instead of a screen, something like a PDF invoice.</small>
         </li>
         <li style="font-size:1.5em;">The quick brown fox jumps over the lazy dog.
-          <small>1.5em, relative to the parent. Good for something inside a reusable component, like a button, so it scales along with whatever font-size that component was given.</small>
+          <small>1.5em, relative to the parent. Put this inside a button or card component and it'll scale with whatever font-size that component ends up with.</small>
         </li>
         <li style="font-size:1.75rem;">The quick brown fox jumps over the lazy dog.
-          <small>1.75rem, relative to the root html element. This is my default for headings since it won't randomly change size just because it's nested three divs deep.</small>
+          <small>1.75rem, relative to the root element. My default for headings, since it doesn't matter how many divs deep it's buried, it always answers to the same base size.</small>
         </li>
         <li style="font-size:120%;">The quick brown fox jumps over the lazy dog.
-          <small>120%, relative to the parent. I'd use this for something like a pull-quote that just needs to be a bit bigger than the paragraph around it, nothing dramatic.</small>
+          <small>120%, relative to the parent. A bit bigger than the paragraph around it, nothing dramatic, think pull-quote and not billboard.</small>
         </li>
         <li style="font-size:4vw;">The quick brown fox jumps over the lazy dog.
-          <small>4vw, relative to the viewport width. This is fun for a big hero headline that you actually want to grow or shrink as you resize the browser window.</small>
+          <small>4vw, tied to the browser's width. Resize the window and the text actually shrinks or grows with it, which is why hero headlines love this one.</small>
         </li>
       </ul>
     </div>
@@ -307,7 +307,7 @@
   <!-- ================= 6. Positioning playground ================= -->
   <section id="positioning">
     <h2>6. Four positioning options, live</h2>
-    <p>The navbar up top is already <code>position: sticky</code>, so that's option #1 down. Here are three more in one little demo box, plus a bonus fixed pill hanging out in the corner of your actual browser window:</p>
+    <p>The navbar up top is already <code>position: sticky</code>. Here are three more in one little demo box, plus a bonus fixed pill hanging out in the corner of the browser window:</p>
     <div class="panel">
       <div class="pos-stage">
         <div class="pos-static">static box (default flow)</div>
@@ -317,10 +317,10 @@
       <table class="tagtable" style="margin-top:1rem;">
         <tr><th>Position</th><th>When I'd actually use it</th></tr>
         <tr><td><code>sticky</code></td><td>Navbars, mostly. Scrolls with the page like normal, then locks to the top once it hits the edge.</td></tr>
-        <tr><td><code>static</code></td><td>This is the default for everything. You only start caring about position once static stops being enough.</td></tr>
+        <tr><td><code>static</code></td><td>This is the default for everything. Position only becomes a thing worth thinking about once static stops being enough.</td></tr>
         <tr><td><code>relative</code></td><td>Either a small nudge off its normal spot, or (more often, honestly) just to give an absolutely positioned child something to anchor to.</td></tr>
         <tr><td><code>absolute</code></td><td>Pinning something to a corner of its container, like a little "sale" tag stuck on a product card.</td></tr>
-        <tr><td><code>fixed</code></td><td>Stuff that should never move no matter how far you scroll, like a chat bubble. That teal pill bottom-left is doing exactly this.</td></tr>
+        <tr><td><code>fixed</code></td><td>Stuff that should never move no matter how far the page scrolls, like a chat bubble. That teal pill bottom-left is doing exactly this.</td></tr>
       </table>
     </div>
   </section>
@@ -333,7 +333,7 @@
 <footer>
   <p>Built for the HTML + CSS + JS self assessment, <span id="year"></span></p>
   <button id="theme-toggle" type="button">Toggle light / dark</button>
-  <p style="font-size:0.75rem; margin-top:0.6rem;">This footer sits at the bottom of the screen even on short pages because <code>body</code> is a flex column with <code>min-height:100vh</code> and <code>main{flex:1 0 auto}</code>, a flavor of positioning that doesn't need <code>position:absolute</code> at all.</p>
+  <p style="font-size:0.75rem; margin-top:0.6rem;">This footer sits at the bottom of the screen even on short pages because <code>body</code> is a flex column with <code>min-height:100vh</code> and <code>main{flex:1 0 auto}</code>. No <code>position:absolute</code> needed.</p>
 </footer>
 
 <script>
