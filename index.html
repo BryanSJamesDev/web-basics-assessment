@@ -39,7 +39,7 @@
   }
   main{flex:1 0 auto;}
   img{max-width:100%;}
-  h1,h2,h3{font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height:1.2;}
+  h1,h2,h3{font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height:1.2; scroll-margin-top: 90px;}
   code{font-family:var(--mono); background:var(--line); padding:1px 5px; border-radius:4px;}
   a{color:var(--accent2);}
 
@@ -98,8 +98,11 @@
     color:#183024;
     font-size:0.75rem;
     padding:4px;
-    width:78px;
+    width:82px;
+    height:14px;
+    line-height:14px;
     text-align:center;
+    white-space:nowrap;
   }
 
   /* ---------- #5 font size list ---------- */
@@ -163,6 +166,7 @@
     }
     .pos-relative{ left:10px; }
     .pos-absolute{ right:8px; bottom:8px; }
+    section, h1, h2, h3{ scroll-margin-top: 170px; }
   }
 
   footer{
@@ -215,19 +219,19 @@
         <li><code>&lt;span&gt;</code></li>
         <li><code>&lt;section&gt;</code></li>
         <li><code>&lt;nav&gt;</code></li>
-        <li><code>&lt;header&gt;</code> / <code>&lt;footer&gt;</code></li>
-        <li><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> / <code>&lt;li&gt;</code></li>
+        <li><code>&lt;header&gt;</code></li>
+        <li><code>&lt;footer&gt;</code></li>
+        <li><code>&lt;ul&gt;</code></li>
         <li><code>&lt;img&gt;</code></li>
         <li><code>&lt;a&gt;</code></li>
         <li><code>&lt;button&gt;</code></li>
-        <li><code>&lt;form&gt;</code> / <code>&lt;input&gt;</code></li>
       </ol>
     </div>
   </section>
 
   <!-- ================= SUBHEADER 2: SEO ================= -->
   <section id="seo">
-    <h2>2. Header tags that matter for SEO</h2>
+    <h2>2. Elements and attributes that matter for SEO</h2>
     <div class="panel">
       <p>Elements and attributes that matter most for SEO:</p>
       <ul>
@@ -237,7 +241,7 @@
         <li><code>&lt;h2&gt;</code> through <code>&lt;h6&gt;</code></li>
         <li><code>&lt;meta name="viewport"&gt;</code></li>
         <li><code>&lt;link rel="canonical"&gt;</code></li>
-        <li>Open Graph tags, <code>&lt;meta property="og:*"&gt;</code></li>
+        <li>Open Graph metadata for social sharing previews, <code>&lt;meta property="og:*"&gt;</code></li>
         <li><code>&lt;img alt="..."&gt;</code></li>
       </ul>
     </div>
@@ -246,13 +250,13 @@
   <!-- ================= SUBHEADER 3: 3x3 grid, no CSS, no table ================= -->
   <section id="grid">
     <h2>3. A 3&times;3 "grid" using only divs and spans (zero CSS)</h2>
-    <p>No <code>&lt;table&gt;</code>, no stylesheet, no <code>style</code> attribute. A <code>&lt;div&gt;</code> is block-level so it just stacks into a new row on its own. A <code>&lt;span&gt;</code> is inline so it sits next to whatever's beside it. That's the whole trick. Box-drawing characters and non-breaking spaces do the rest:</p>
+    <p>No <code>&lt;table&gt;</code>, no CSS layout, no <code>style</code> attribute on the rows or cells. A <code>&lt;div&gt;</code> is block-level so it just stacks into a new row on its own. A <code>&lt;span&gt;</code> is inline so it sits next to whatever's beside it. That's the whole trick, using nothing but default HTML flow:</p>
     <div class="panel">
-<div><span>| R1C1 |</span>&nbsp;<span>| R1C2 |</span>&nbsp;<span>| R1C3 |</span></div>
-<div><span>| R2C1 |</span>&nbsp;<span>| R2C2 |</span>&nbsp;<span>| R2C3 |</span></div>
-<div><span>| R3C1 |</span>&nbsp;<span>| R3C2 |</span>&nbsp;<span>| R3C3 |</span></div>
+<div><span>|&nbsp;R1C1&nbsp;|</span>&nbsp;<span>|&nbsp;R1C2&nbsp;|</span>&nbsp;<span>|&nbsp;R1C3&nbsp;|</span></div>
+<div><span>|&nbsp;R2C1&nbsp;|</span>&nbsp;<span>|&nbsp;R2C2&nbsp;|</span>&nbsp;<span>|&nbsp;R2C3&nbsp;|</span></div>
+<div><span>|&nbsp;R3C1&nbsp;|</span>&nbsp;<span>|&nbsp;R3C2&nbsp;|</span>&nbsp;<span>|&nbsp;R3C3&nbsp;|</span></div>
     </div>
-    <p style="font-size:0.85rem; color:var(--muted);">Three row <code>&lt;div&gt;</code>s, each forcing a new line. Each row holds three separate <code>&lt;span&gt;</code>s, one per cell, joined by <code>&amp;nbsp;</code> so they don't wrap. Nine cells, nine spans, no CSS layout anywhere on this one.</p>
+    <p style="font-size:0.85rem; color:var(--muted);">Three row <code>&lt;div&gt;</code>s, each forcing a new line. Each row holds three separate <code>&lt;span&gt;</code>s, one per cell. Every space inside and between the cells is <code>&amp;nbsp;</code>, so nothing wraps. Nine cells, nine spans.</p>
   </section>
 
   <!-- ================= 4. Box model gallery ================= -->
@@ -293,7 +297,7 @@
           <small>12px, absolute. This is what fine print and copyright lines are made of, small on purpose and locked to a pixel value rather than scaling with a parent's font-size.</small>
         </li>
         <li style="font-size:22pt;">The quick brown fox jumps over the lazy dog.
-          <small>22pt, absolute. Points are a print unit that scales with dpi settings, so this matters most once a page is headed for paper instead of a screen, something like a PDF invoice.</small>
+          <small>22pt, absolute. Points come from print, and 1pt always equals 4/3 of a CSS pixel, so it renders on screens just fine too, but it's the natural choice once a page is headed for paper, something like a PDF invoice.</small>
         </li>
         <li style="font-size:1.5em;">The quick brown fox jumps over the lazy dog.
           <small>1.5em, relative to the parent. Put this inside a button or card component and it'll scale with whatever font-size that component ends up with.</small>
@@ -318,7 +322,7 @@
     <div class="panel">
       <div class="pos-stage">
         <div class="pos-static">static box (default flow)</div>
-        <div class="pos-relative">relative box (nudged 14px down, 30px right from where it would sit)</div>
+        <div class="pos-relative">relative box (nudged down and to the right from where it would sit)</div>
         <div class="pos-absolute">absolute box (pinned to bottom-right of this stage)</div>
       </div>
       <table class="tagtable" style="margin-top:1rem;">
