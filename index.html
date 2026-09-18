@@ -64,6 +64,7 @@
     max-width: 960px;
     margin: 2.5rem auto;
     padding: 0 1.4rem;
+    scroll-margin-top: 80px;
   }
   section > h2{
     border-bottom:3px solid var(--accent);
@@ -97,6 +98,8 @@
     color:#183024;
     font-size:0.75rem;
     padding:4px;
+    width:78px;
+    text-align:center;
   }
 
   /* ---------- #5 font size list ---------- */
@@ -106,13 +109,13 @@
   /* ---------- #6 positioning playground ---------- */
   .pos-stage{
     position:relative; /* establishes containing block for the absolute child */
-    height:260px;
+    min-height:260px;
     border:2px dashed var(--accent2);
     border-radius:10px;
     background:
       repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(0,0,0,0.03) 18px, rgba(0,0,0,0.03) 36px);
-    overflow:hidden;
     margin-top:1rem;
+    padding-bottom:60px;
   }
   .pos-static{
     position:static; /* default flow, just here for comparison */
@@ -150,6 +153,16 @@
     border-radius:20px;
     box-shadow:0 3px 10px rgba(0,0,0,0.25);
     z-index:40;
+  }
+
+  @media (max-width:480px){
+    .pos-static, .pos-relative, .pos-absolute{
+      font-size:0.8rem;
+      padding:8px 10px;
+      max-width:70%;
+    }
+    .pos-relative{ left:10px; }
+    .pos-absolute{ right:8px; bottom:8px; }
   }
 
   footer{
@@ -216,7 +229,7 @@
   <section id="seo">
     <h2>2. Header tags that matter for SEO</h2>
     <div class="panel">
-      <p>Tags that matter most for SEO:</p>
+      <p>Elements and attributes that matter most for SEO:</p>
       <ul>
         <li><code>&lt;title&gt;</code></li>
         <li><code>&lt;meta name="description"&gt;</code></li>
@@ -235,17 +248,11 @@
     <h2>3. A 3&times;3 "grid" using only divs and spans (zero CSS)</h2>
     <p>No <code>&lt;table&gt;</code>, no stylesheet, no <code>style</code> attribute. A <code>&lt;div&gt;</code> is block-level so it just stacks into a new row on its own. A <code>&lt;span&gt;</code> is inline so it sits next to whatever's beside it. That's the whole trick. Box-drawing characters and non-breaking spaces do the rest:</p>
     <div class="panel">
-<div><span>&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;&nbsp;&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;&nbsp;&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;</span></div>
-<div><span>&#9474;&nbsp;&nbsp;R1C1&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R1C2&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R1C3&nbsp;&nbsp;&#9474;</span></div>
-<div><span>&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;&nbsp;&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;&nbsp;&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</span></div>
-<div><span>&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;&nbsp;&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;&nbsp;&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;</span></div>
-<div><span>&#9474;&nbsp;&nbsp;R2C1&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R2C2&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R2C3&nbsp;&nbsp;&#9474;</span></div>
-<div><span>&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;&nbsp;&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;&nbsp;&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</span></div>
-<div><span>&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;&nbsp;&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;&nbsp;&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;</span></div>
-<div><span>&#9474;&nbsp;&nbsp;R3C1&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R3C2&nbsp;&nbsp;&#9474;&nbsp;&#9474;&nbsp;&nbsp;R3C3&nbsp;&nbsp;&#9474;</span></div>
-<div><span>&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;&nbsp;&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;&nbsp;&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</span></div>
+<div><span>| R1C1 |</span>&nbsp;<span>| R1C2 |</span>&nbsp;<span>| R1C3 |</span></div>
+<div><span>| R2C1 |</span>&nbsp;<span>| R2C2 |</span>&nbsp;<span>| R2C3 |</span></div>
+<div><span>| R3C1 |</span>&nbsp;<span>| R3C2 |</span>&nbsp;<span>| R3C3 |</span></div>
     </div>
-    <p style="font-size:0.85rem; color:var(--muted);">Each row is its own <code>&lt;div&gt;</code>, which forces a new line. Each cell is a <code>&lt;span&gt;</code>, joined to its neighbors with <code>&amp;nbsp;</code> so they don't wrap. No CSS layout anywhere on this one.</p>
+    <p style="font-size:0.85rem; color:var(--muted);">Three row <code>&lt;div&gt;</code>s, each forcing a new line. Each row holds three separate <code>&lt;span&gt;</code>s, one per cell, joined by <code>&amp;nbsp;</code> so they don't wrap. Nine cells, nine spans, no CSS layout anywhere on this one.</p>
   </section>
 
   <!-- ================= 4. Box model gallery ================= -->
@@ -283,10 +290,10 @@
     <div class="panel">
       <ul class="fontsizes" style="list-style:square;">
         <li style="font-size:12px;">The quick brown fox jumps over the lazy dog.
-          <small>12px, absolute. This is what fine print and copyright lines are made of, small on purpose and staying that way no matter what the reader's browser is set to.</small>
+          <small>12px, absolute. This is what fine print and copyright lines are made of, small on purpose and locked to a pixel value rather than scaling with a parent's font-size.</small>
         </li>
-        <li style="font-size:18pt;">The quick brown fox jumps over the lazy dog.
-          <small>18pt, absolute. Points are a print unit, so this only really matters once the page is headed for paper instead of a screen, something like a PDF invoice.</small>
+        <li style="font-size:22pt;">The quick brown fox jumps over the lazy dog.
+          <small>22pt, absolute. Points are a print unit that scales with dpi settings, so this matters most once a page is headed for paper instead of a screen, something like a PDF invoice.</small>
         </li>
         <li style="font-size:1.5em;">The quick brown fox jumps over the lazy dog.
           <small>1.5em, relative to the parent. Put this inside a button or card component and it'll scale with whatever font-size that component ends up with.</small>
@@ -306,7 +313,7 @@
 
   <!-- ================= 6. Positioning playground ================= -->
   <section id="positioning">
-    <h2>6. Four positioning options, live</h2>
+    <h2>6. Positioning options, live</h2>
     <p>The navbar up top is already <code>position: sticky</code>. Here are three more in one little demo box, plus a bonus fixed pill hanging out in the corner of the browser window:</p>
     <div class="panel">
       <div class="pos-stage">
@@ -342,8 +349,10 @@
   const btn = document.getElementById('theme-toggle');
   btn.addEventListener('click', () => {
     const root = document.documentElement;
-    const current = root.getAttribute('data-theme');
-    root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    const explicit = root.getAttribute('data-theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isCurrentlyDark = explicit ? explicit === 'dark' : systemPrefersDark;
+    root.setAttribute('data-theme', isCurrentlyDark ? 'light' : 'dark');
   });
 </script>
 
